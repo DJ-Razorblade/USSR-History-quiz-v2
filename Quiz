@@ -1,0 +1,98 @@
+print("Hello there, welcome to my quiz! Welcome to my quiz about the former Soviet Union\n")
+
+# Function to ask the user for their name and age
+def infoObtain():
+    name = input("What's your name? ")
+    age = int(input("How ancient are you? "))
+    while age < 13:
+        print("In order to play this quiz, you must be over 13 years of existence")
+        age = int(input("How ancient are you? "))
+    return name, age
+
+# Function to ask a multiple-choice question
+def ask_multiple_choice_question(question, options, answerCorrect):
+    print(question)
+    for i, option in enumerate(options, 1):
+        print(f"{i}. {option}")
+    answer = int(input("Your answer (1/2/3/4): "))
+    if options[answer - 1].lower() == answerCorrect.lower():
+        return 1
+    else:
+        return 0
+
+# Function to ask a single-answer quiz question
+def questionAsk(question, answerCorrect):
+    answer = input(question + "\nYour answer: ").lower()
+    if answer == answerCorrect.lower():
+        return 1
+    else:
+        return 0
+
+# Main function to run the quiz
+def run_quiz():
+    name, age = infoObtain()
+    score = 0
+   # History
+    print(f"Welcome {name}! Let's start the quiz.")
+    print("The Soviet Union, officially known as the Union of Soviet Socialist Republics (USSR), was established in 1922.")
+    print("It emerged from the Russian Revolution of 1917, led by the Bolsheviks under Vladimir Lenin.")
+    print("Lenin introduced the New Economic Policy (NEP) to stabilize the economy after the Russian Civil War (1917-1922).")
+    print("After Lenin's death in 1924, Joseph Stalin took power, launching industrialization and collectivization efforts.")
+    print("Stalin's Great Purge (1936-1938) led to mass arrests, executions, and forced labor camps known as the Gulag.")
+    print("During World War II (1941-1945), the USSR played a crucial role in defeating Nazi Germany, suffering heavy losses.")
+    print("The Cold War (1947-1991) saw the USSR and the USA competing for global influence, including the Space Race and arms race.")
+    print("In 1953, Stalin died, and Nikita Khrushchev initiated de-Stalinization and pursued peaceful coexistence with the West.")
+    print("The Cuban Missile Crisis of 1962 brought the world to the brink of nuclear war before a resolution was reached.")
+    print("The Brezhnev era (1964-1982) was marked by political stagnation, economic struggles, and continued Cold War tensions.")
+    print("Mikhail Gorbachev, the last Soviet leader, introduced reforms like Glasnost (openness) and Perestroika (restructuring).")
+    print("In 1991, due to economic crises, political unrest, and nationalist movements, the Soviet Union officially dissolved.")
+    print("The USSR split into 15 independent republics, with Russia as its largest successor state. Kazakhstan was the last country to depart.")
+    print("Azerbaijan, Russia, Uzbekistan, Georgia, Estonia, Moldova, Latvia, Lithuania, Ukraine, Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan, Belarus, and Armenia")
+    print("However, one soviet state still exists. The Pridnestrovian Moldavian Republic, aka Transnistria.")
+    print("Please refer back to this info as you answer questions. It will help you greatly.\n")
+ 
+    # Questions single-answer
+    score += questionAsk("What was the capital of the Soviet Union? (One word, Very easy)\n", "Moscow")
+    score += questionAsk("What was the last Soviet State to depart the USSR? (One word, slightly easy)\n", "Kazakhstan")
+    score += questionAsk("What was the creator, and first country, to join the Union of Soviet Socialist Republics? (One word, very easy)\n", "Russia")
+    score += questionAsk("Who was the leader of the USSR? (Two words)\n", "Joseph Stalin")
+    score += questionAsk("What is the other name of the Soviet Union? (One word, very easy)\n", "USSR")
+    score += questionAsk("What was the major conflict in the USSR between them and the USA? (Three Words) Hint, The ???? ???\n", "The Cold War")
+    score += questionAsk("What is the last still existing part of the USSR? (One word, long)\n", "Transnistria")
+    score += questionAsk("What crisis almost brought the world to nuclear war? (Three words)\n", "Cuban Missile Crisis")
+    score += questionAsk("What country was the USSR up against in World War 2? (Two words)\n", "Nazi Germany")
+    score += questionAsk("What year did Joseph Stalin die? (One number)\n", "1953")
+
+    # Questions multi-choice
+    score += ask_multiple_choice_question(
+        "What year did the USSR dissolve?",
+        ["1953", "1991", "1964", "1941"],
+        "1991"
+    )
+    score += ask_multiple_choice_question(
+        "Which former Soviet State has the longest name?",
+        ["Azerbaijan", "Armenia", "Lithuania", "Belarus"],
+        "Azerbaijan"
+    )
+    score += ask_multiple_choice_question(
+        "Which former Soviet State has the shortest name?",
+        ["Belarus", "Estonia", "Latvia", "Kyrgyzstan"],
+        "Latvia"
+    )
+    score += ask_multiple_choice_question(
+        "Who was the last Soviet leader?",
+        ["Mikhail Gorbachev", "Joseph Stalin", "Nikita Krushchev", "Vladimir Lenin"],
+        "Mikhail Gorbachev"
+    )
+    score += ask_multiple_choice_question(
+        "What year did the Soviet Union begin?",
+        ["1994", "2025", "1953", "1917"],
+        "1917"
+    )
+
+    # Show user's score
+    print(f"Final score is {score}/20. Did you have fun? That's the most important part!")
+
+# Run the quiz
+if __name__ == "__main__":
+    run_quiz()

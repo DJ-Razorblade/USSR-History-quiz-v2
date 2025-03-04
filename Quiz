@@ -86,12 +86,33 @@ def run_quiz():
     )
     score += ask_multiple_choice_question(
         "What year did the Soviet Union begin?",
-        ["1994", "2025", "1953", "1917"],
-        "1917"
+        ["1994", "2025", "1953", "1922"],
+        "1922"
     )
+    score += ask_multiple_choice_question(
+        "What year did the Cuban Missile Crisis occur?",
+        ["1962", "1415", "450 BC", "1963"],
+        "1962"
+    )
+    score += ask_multiple_choice_question(
+        "The cold war was one of the major conflicts in the lifespan of the USSR. Who did they fight it against?",
+        ["Japan", "New Zealand", "USSR", "USA"],
+        "USA"
+    )
+    score += ask_multiple_choice_question(
+        "When did Vladimir Lenin pass away?",
+        ["1919", "1924", "1936", "1956"],
+        "1924"
+    )
+    score += ask_multiple_choice_question(
+        "What was the USSR's political ideal?",
+        ["Communism", "Socialism", "Capitalism", "Anarchism"],
+        "Communism"
+    )
+    score += questionAsk("True or False. The USSR was the largest country on earth", "True")
 
     # Show user's score
-    print(f"Final score is {score}/20. Did you have fun? That's the most important part!")
+    print(f"Final score is {score}/20. Did you have fun? That's the most important part! Thank you for playing my quiz!")
 
 # Run the quiz
 if __name__ == "__main__":
